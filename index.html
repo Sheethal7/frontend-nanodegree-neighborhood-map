@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Neighborhood Map</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8 text-centered text-uppercase">
+                <h1 class="title-super">Neighborhood map</h1>
+            </div>
+        </header>
+        <main>
+            <div class="row">
+                <div class="col-md-3">
+                    <h4 class="text-thin">Search Places</h4>
+                    <input id="s-input" class="controls" type="search" data-bind="textInput: query," placeholder="Search Location">
+                    <br>
+                    <br>
+                    <div class="list" data-bind="foreach: search()">
+                        <a href="#" data-bind="text: name, click: $parent.setLoc"></a>
+                        <br>
+                    </div>
+                </div>
+                <div class="col-md-3" id="names">
+                </div>
+                <div class="col-md-12">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/knockout-3.4.0.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/view.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmfl9rUOIIZrL4OpfRmnTIrmUexbGF720&v=3&callback=loadMap" onerror="googleError()">
+    </script>
+</body>
+
+</html>
